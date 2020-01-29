@@ -208,13 +208,13 @@ fixml-*Type*-{base\|impl}-*Version*.xsd
 **Examples**
     <!-- formats as source code due to 4 spaces of indentation, next line must be empty -->
 
-    `fixml-components-base-5-0-SP2.xml`
-    `fixml-components-impl-5-0-SP2.xml`
-    `fixml-datatypes-5-0-SP2.xml`
-    `fixml-main-5-0-SP2.xml`
-    `fixml-metadata-5-0-SP2.xml`
-    `fixml-order-base-5-0-SP2.xml`
-    `fixml-order-impl-5-0-SP2.xml`
+    fixml-components-base-5-0-SP2.xml
+    fixml-components-impl-5-0-SP2.xml
+    fixml-datatypes-5-0-SP2.xml
+    fixml-main-5-0-SP2.xml
+    fixml-metadata-5-0-SP2.xml
+    fixml-order-base-5-0-SP2.xml
+    fixml-order-impl-5-0-SP2.xml
 
 The type of the schema file is identified in the second component of the file name. The datatypes file contains the basic datatypes used within FIXML. The shared files contain the definitions for FIX fields. The components file contains definitions for FIXML components, additional components identified while defining the FIXML schema, and the outer elements for FIX.
 
@@ -258,7 +258,7 @@ The entity relationship diagram below illustrates the message batching elements 
 
 ![FIXML Message Batching Entity Relationship Diagram](media/FIXML-Message-Batching.png)
 
-The figure below illustrates the high level FIXL structure for a single FIX message compared to a batch of FIX messages. For greater detail, refer to the detailed examples included later in this document.
+The figure below illustrates the high level FIXML structure for a single FIX message compared to a batch of FIX messages. For greater detail, refer to the detailed examples included later in this document.
 
 ![Single versus Batch FIXML messages](media/FIXML-Single-versus-Batching.png)
 
@@ -483,7 +483,7 @@ The following is an example of the FIX standard CommType(13) field definition in
 
 ```xml
 <xs:simpleType name="CommType_t">
-<xs:restriction base="CommType_enum_t"/>
+    <xs:restriction base="CommType_enum_t"/>
 </xs:simpleType>
 ```
 
@@ -548,7 +548,7 @@ Each message category defined within the FIX specification has its own pair of s
 
 The category base schema file includes the standard FIX components and messages that are coded for the category. Category messages and components are defined following a similar pattern defined above for components. Messages will include an additional element for the abbreviated message name.
 
-The following is an example of the New Order Single message from the `fixml-order-base-5-0-SP2.xsd` FIXML schema file:
+The following is an example of the NewOrderSingle(35=D) message from the `fixml-order-base-5-0-SP2.xsd` FIXML schema file:
 
 ```xml
 <xs:group name="NewOrderSingleElements">
