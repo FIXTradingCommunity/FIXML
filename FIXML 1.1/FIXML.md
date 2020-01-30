@@ -160,7 +160,7 @@ The following design rules support the design objectives for the FIXML Schema an
 
 Organization of files is driven largely by the requirement to support customization of the FIXML Schema. The basic organization of the schema has the datatypes used by the fields maintained in a separate file. FIX fields are defined in the shared file. Components and the FIXML root element are defined in the component files. FIXML messages are defined within separate category files. Convenience files include the category files and the main file includes the convenience files. The figure below illustrates the relationship of these file types.
 
-![FIXML Schema Layers](media/FIXML-Schema-Layers.png)
+![](media/FIXML-Schema-Layers.png)
 
 ##  Extensibility Design Pattern
 
@@ -168,19 +168,19 @@ An extensibility design pattern is implemented in the FIXML schema that defines 
 
 The figure below illustrates the relationship between the base and implementation files and the general extensibility design pattern.
 
-![FIXML Schema Extension Implementation](media/FIXML-Schema-Extension.png)
+![](media/FIXML-Schema-Extension.png)
 
 Each level of schema file (with the exception of datatypes and convenience files) includes a base definition file that defines the standard (default) FIXML language. Each level also includes an implementation (impl) file that references the base definition.
 
 The figure below illustrates how the design pattern is applied to the various layers of schema files.
 
-![FIXML Schema File Hierarchy](media/FIXML-Schema-File-Hierarchy.png)
+![](media/FIXML-Schema-File-Hierarchy.png)
 
 In general, base schema files are intended to be read only and include the FIX standard and implementation files are used to support customization of the base file content.
 
 The figure below illustrates the read only and customizable files within the FIXML schema hierarchy.
 
-![Customizable and Read Only FIXML Schema Files](media/FIXML-Customizable-Schema.png)
+![](media/FIXML-Customizable-Schema.png)
 
 ## FIXML Schema file naming conventions
 
@@ -230,8 +230,6 @@ The FIXML root element is used to support versioning requirements and the abilit
 
 The FIXML root element <FIXML> includes several optional attributes that can be used to identify the application and FIXML version details. The FIXML root element is defined in the `fixml-components-base-5-0-SP2.xsd` schema file. The table below illustrates the root level version attributes.
 
-Table 1 FIXML Versioning Attributes
-
   Attribute      Description                                                            Field(Tag)/datatype      Example
   -------------- ---------------------------------------------------------------------- ------------------------ ------------
   v              FIX Version                                                            ApplVerID(1128)          FIX.5.0SP2
@@ -256,11 +254,11 @@ The FIXML root element <FIXML> supports the ability to include either a single o
 
 The entity relationship diagram below illustrates the message batching elements and design.
 
-![FIXML Message Batching Entity Relationship Diagram](media/FIXML-Message-Batching.png)
+![](media/FIXML-Message-Batching.png)
 
 The figure below illustrates the high level FIXML structure for a single FIX message compared to a batch of FIX messages. For greater detail, refer to the detailed examples included later in this document.
 
-![Single versus Batch FIXML messages](media/FIXML-Single-versus-Batching.png)
+![](media/FIXML-Single-versus-Batching.png)
 
 ### Batch Attributes
 
@@ -274,13 +272,13 @@ The capability to indicate several optional batch attributes was added in FIX 5.
 
 `@ID` is a unique identifier for a batch of messages.
 
-`@ProcMode` indicates the processing mode for a batch of messages.
+`@ProcMode` indicates the processing mode for a batch of messages:
 
-> Valid values include:
->
-> 0 -- Incremental update (default if not specified)
->
-> 1 -- Snapshot (The batch of messages is a complete set)
+Valid values include:
+
+0 -- Incremental update (default if not specified)
+
+1 -- Snapshot (The batch of messages is a complete set)
 
 `@TotMsg` indicates the total number of messages in the batch.
 
@@ -352,8 +350,6 @@ Note that the header is provided for the entire batch of messages. The batch att
 The fixml-datatypes-5-0-SP2.xsd schema file contains definitions for the FIXML datatypes. Many of the XML Schema standards are based upon ISO standard datatypes. This means that the FIX representation of UTCTimestamp is different from the FIXML representation. The requirement for conversion between FIX tag=value datatypes and XML is left to implementers.
 
 FIX data types are mapped to the closest XML schema data type whenever possible. The table below lists the FIX data types, the base data type and the FIXML implementation.
-
-Table 2 - FIXML Datatypes
 
   Type                  Base Type                     FIXML Implementation                                                                                                                                                  Example
   --------------------- ----------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------
@@ -765,8 +761,6 @@ Custom messages are added by creating a message structure within the category to
 # FIXML Schema File Summary
 
 The table below lists the FIXML schema files and a summary of their contents and dependencies.
-
-Table 3 - FIXML Schema File Summary
 
 +----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | File Name                                    | Description                                                                                                                                                      |
