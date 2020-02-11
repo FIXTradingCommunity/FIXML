@@ -231,14 +231,14 @@ The FIXML root element is used to support versioning requirements and the abilit
 The FIXML root element <FIXML> includes several optional attributes that can be used to identify the application and FIXML version details. The FIXML root element is defined in the `fixml-components-base-5-0-SP2.xsd` schema file. The table below illustrates the root level version attributes.
 
   Attribute      Description                                                            Field(Tag)/datatype      Example
-  -------------- ---------------------------------------------------------------------- ------------------------ ------------
+  -------------- ---------------------------------------------------------------------- ------------------------ -----------------------------
   v              FIX Version                                                            ApplVerID(1128)          FIX.5.0SP2
   r              FIX Version release date (Deprecated)                                  `xs:string`              []{custom-style="FIXCompact"}
   xv             FIX Extension Pack number                                              ApplExtID(1156)          192
   cv             Custom functionality, support of which requires bilateral agreement.   CstmApplVerID(1129)      []{custom-style="FIXCompact"}
   xr             FIX Extension release date (Deprecated)                                `xs:string`              []{custom-style="FIXCompact"}
   s              FIXML Schema Release                                                   `xs:date` (Fixed)        2014-05-07
-  -------------- ---------------------------------------------------------------------- ------------------------ ------------
+  -------------- ---------------------------------------------------------------------- ------------------------ -----------------------------
 
 **Example:**
 
