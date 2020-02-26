@@ -36,11 +36,6 @@ In this document, examples of FIXML will appear with the FIXML root element encl
 <FIXML><element attribute="attributeValue"></FIXML>
 ```
 
-Field / Message / Component names:
-
-- `@ProcMode`
-- BatchProcessMode(50002)
-
 ## References
 
 ### Related FIX Standards
@@ -49,7 +44,7 @@ For FIX semantics, see the FIX message specification [FIX Version 5.0 Service Pa
 
 Specific Extension Packs affecting the FIXML standard include:
 
--   FIXML Inline Component Extension
+-   FIXML Inline Component Extension as part of EP105 -- Parties Reference Data Extensions
 
 -   EP145 -- GFIC LegSecurityXML Extension
 
@@ -226,9 +221,11 @@ Refer to the FIXML Schema File Summary section for a complete list of schema fil
 
 The FIXML root element is used to support versioning requirements and the ability to batch messages.
 
-## FIXML Version Attributes
+## FIXML Versioning Attributes
 
 The FIXML root element <FIXML> includes several optional attributes that can be used to identify the application and FIXML version details. The FIXML root element is defined in the `fixml-components-base-5-0-SP2.xsd` schema file. The table below illustrates the root level version attributes.
+
+Table: FIXML Versioning Attributes
 
   Attribute      Description                                                            Field(Tag)/datatype      Example
   -------------- ---------------------------------------------------------------------- ------------------------ -----------------------------
@@ -351,6 +348,8 @@ The fixml-datatypes-5-0-SP2.xsd schema file contains definitions for the FIXML d
 
 FIX data types are mapped to the closest XML schema data type whenever possible. The table below lists the FIX data types, the base data type and the FIXML implementation.
 
+Table: FIXML Datatypes
+
   Type                  Base Type                     FIXML Implementation                                                                                                                                                  Example
   --------------------- ----------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------
   int                   []{custom-style="FIXCompact"} Use builtin type: xs:integer                                                                                                                                                            
@@ -378,7 +377,7 @@ FIX data types are mapped to the closest XML schema data type whenever possible.
   UTCTimeOnly           String                        `<xs:simpleType name="UTCTimeOnly"> <xs:restriction base="xs:time"> </xs:restriction> </xs:simpleType>`                                                               `MDEntryTime="13:20:00.000-05:00"`
   UTCDateOnly           String                        `<xs:simpleType name="UTCDateOnly"> <xs:restriction base="xs:date"> </xs:restriction> </xs:simpleType>`                                                               `MDEntryDate="2003-09-10"`
   LocalMktDate          String                        `<xs:simpleType name="LocalMktDate"> <xs:restriction base="xs:date"> </xs:restriction> </xs:simpleType>`                                                              `BizDate="2003-09-10"`
-  LocalMktTime          String                        Use builtin type: `xs:time`                                                                                                                                           `="07:00:00"`
+  LocalMktTime          String                        Use builtin type: `xs:time`                                                                                                                                           `ValTm="07:00:00"`
   TZTimeOnly            String                        `<xs:simpleType name="TZTimeOnly"> <xs:restriction base="xs:time"> </xs:restriction> </xs:simpleType>`                                                                []{custom-style="FIXCompact"}        
   TZTimestamp           String                        `<xs:simpleType name="TZTimestamp"> <xs:restriction base="xs:dateTime"> </xs:restriction> </xs:simpleType>`                                                           []{custom-style="FIXCompact"}        
   data                  String                        `<xs:simpleType name="data"> <xs:restriction base="xs:string"> </xs:restriction> </xs:simpleType>`                                                                    []{custom-style="FIXCompact"}        
@@ -744,7 +743,7 @@ Restricting enumeration values is done by modifying the type definition in the `
 
 ## Extending enumeration values for a FIX field
 
-Extending enumeration values is done by creating a union of the original enumeration type definition with new enumeration values.
+Extending enumeration values is done by creating a union of the original enumeration type definition with new enumeration values in the `fixml-fields-impl 5-0-SP2.xsd` schema file.
 
 ## Making an optional field required
 
@@ -761,6 +760,8 @@ Custom messages are added by creating a message structure within the category to
 # FIXML Schema File Summary
 
 The table below lists the FIXML schema files and a summary of their contents and dependencies.
+
+Table: FIXML Schema File Summary
 
 +----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | File Name                                    | Description                                                                                                                                                      |
@@ -1137,5 +1138,5 @@ The table below lists the FIXML schema files and a summary of their contents and
 |                                              |                                                                                                                                                                  |
 |                                              | This file should be considered read only.                                                                                                                        |
 +----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `fixml-metadata-5-0-SP2.xsd`                 | []{custom-style="FIXCompact"}                                                                                                                                    |
+| `fixml-metadata-5-0-SP2.xsd`                 | Defines the metadata attributes of the elements `XRef` (for cross references to FIX tag=value encoding) and `EnumDoc` (for names of valid values).               |
 +----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
