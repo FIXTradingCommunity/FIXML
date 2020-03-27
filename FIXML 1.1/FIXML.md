@@ -199,7 +199,7 @@ Table: FIXML Versioning Attributes
 <FIXML v="FIX.5.0SP2" xv="192" s="2014-05-07"> ... </FIXML>
 ```
 
-## Batching FXIML messages
+## Batching FIXML messages
 
 The FIXML root element <FIXML> supports the ability to include either a single or a batch of FIXML application messages. Batch capability is provided to support groups of messages, such as post trade confirms or position reports at the end of a trading session.
 
