@@ -2,6 +2,20 @@
 
 The Financial Information Exchange (FIX) Protocol is a message standard developed to facilitate the electronic exchange of information related to securities transactions. It is intended for use between trading partners wishing to automate communications. FIXML is a technical standard for FIX application messages using XML syntax. This document defines the FIXML 1.1 Technical Standard.
 
+The Technical Specification is split into the following sections:
+
+1. [Introduction](#introduction)
+2. [FIXML Schema Design Rules](#fixml-schema-design-rules)
+3. [FIXML Schema Implementation](#fixml-schema-implementation)
+4. [FIXML Root Element](#fixml-root-element)
+5. [FIXML Datatypes](#fixml-datatypes)
+6. [FIXML Fields](#fixml-fields)
+7. [FIXML Components](#fixml-components)
+8. [FIXML Categories](#fixml-categories)
+9. [FIXML Convenience Files](#fixml-convenience)
+10. [FIXML Customization](#fixml-customization)
+11. [FIXML Schema File Summary](#fixml-schema-file-summary)
+
 ## Background
 
 The FPL FIXML working group began investigating the XML format in 1998 and published a white paper supporting an evolutionary approach to support the FIX Protocol using an XML format. The working group released an initial version of the FIXML DTDs on January 15th, 1999. There are DTDs based on FIX Protocol versions 4.1, 4.2 and 4.3. A FIXML Schema was established with the release of FIX 4.4. The working group then focused on optimizing and enhancing the use of XML technologies. The FIXML 1.1 Technical Standard is the result of these enhancements to optimizations for FIX messaging and has been available as part of the standard release process since FIX 5.0 SP2 (April 2009).
