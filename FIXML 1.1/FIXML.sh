@@ -7,13 +7,13 @@ TARGET="$PWD"
 echo Compilation started...
 LOCAL="<INSERT YOUR LOCAL PATH TO THE GITHUB CLONE DIRECTORY HERE>"
 ROOT="$LOCAL/GitHub/FIXML/FIXML 1.1"
-# There is only one disclaimer and style docx file for all FIX Technical Standards and it is stored with teh FIX Session Layer
+# There is only one disclaimer and style docx file for all FIX Technical Standards and it is stored with the FIX Session Layer
 DISCLAIMER="$LOCAL/GitHub/fix-session-layer-standards/FIXDisclaimerTechStd.md"
 STYLE="$LOCAL/GitHub/fix-session-layer-standards/FIX_TechStd_Style_MASTER.docx"
 SOURCE="$ROOT"
 YAML="$SOURCE/FIXML.yaml"
 FILES="FIXML.md"
-WPFOLDER="wp-content\/uploads\/2020\/03"
+WPFOLDER="/wp-content/uploads/2020/03/"
 
 cd "$SOURCE"
 
@@ -28,8 +28,8 @@ pandoc $FILES -o "$TARGET/FIXMLONLINE.html"
 cd "$TARGET"
 
 # Create separate online versions for production and test website by including appropriate link prefixes
-sed s/"img src=\"media\/"/"img src=\"https:\/\/www.fixtrading.org\/$WPFOLDER\/"/g FIXMLONLINE.html > FIXMLONLINE_PROD.html
-sed s/"img src=\"media\/"/"img src=\"https:\/\/www.technical-fixprotocol.org\/$WPFOLDER\/"/g FIXMLONLINE.html > FIXMLONLINE_TEST.html
+sed 's,img src="media/,img src="https://www.fixtrading.org'$WPFOLDER',g' FIXMLONLINE.html > FIXMLONLINE_PROD.html
+sed 's,img src="media/,img src="https://www.technical-fixprotocol.org'$WPFOLDER',g' FIXMLONLINE.html > FIXMLONLINE_TEST.html
 
 # Change remaining links to production website in test version to test website
 sed -i '.bak' s/www.fixtrading.org/www.technical-fixprotocol.org/ FIXMLONLINE_TEST.html
