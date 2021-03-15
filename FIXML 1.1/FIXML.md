@@ -193,7 +193,7 @@ The FIXML root element is used to support versioning requirements and the abilit
 
 ## FIXML Versioning Attributes
 
-The FIXML root element <FIXML> includes several optional attributes that can be used to identify the application and FIXML version details. The FIXML root element is defined in the `fixml-components-base-5-0-SP2.xsd` schema file. The table below illustrates the root level version attributes.
+The FIXML root element `<FIXML>` includes several optional attributes that can be used to identify the application and FIXML version details. The FIXML root element is defined in the `fixml-components-base-5-0-SP2.xsd` schema file. The table below illustrates the root level version attributes.
 
 Table: FIXML Versioning Attributes
 
@@ -215,7 +215,7 @@ Table: FIXML Versioning Attributes
 
 ## Batching FIXML messages
 
-The FIXML root element <FIXML> supports the ability to include either a single or a batch of FIXML application messages. Batch capability is provided to support groups of messages, such as post trade confirms or position reports at the end of a trading session.
+The FIXML root element `<FIXML>` supports the ability to include either a single or a batch of FIXML application messages. Batch capability is provided to support groups of messages, such as post trade confirms or position reports at the end of a trading session.
 
 ### Batching Structure
 
@@ -266,7 +266,7 @@ This example is a FIX NewOrderSingle(35=D) message sent individually in FIXML.
 
 This example shows a batch of position reports.
 
-Note that the header is provided for the entire batch of messages. The batch attribute \@TotMsg is an optional batch attribute indicating the number of messages included in the batch.
+Note that the header is provided for the entire batch of messages. The batch attribute `@TotMsg` is an optional batch attribute indicating the number of messages included in the batch.
 
 ```xml
 <FIXML v="FIX.5.0SP2" xv="192" s="2014-05-07">
